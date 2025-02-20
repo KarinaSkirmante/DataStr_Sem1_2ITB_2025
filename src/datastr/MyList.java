@@ -219,5 +219,28 @@ public class MyList {
 		list[index2] = temp;
 	}
 	
+	public void print() throws Exception{ 
+		if(isEmpty()) {
+			throw new Exception("List is empty and it is not possible to print elements");
+		}
+	
+		for(int i = 0; i < counter; i++) {
+			System.out.print(list[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	public void makeEmpty()
+	{
+		if(!isEmpty())
+		{
+			size = DEFAULT_SIZE;
+			counter = 0;
+			list = new char[size];
+			System.gc();
+		}
+	}
+	
+	
 }
 
