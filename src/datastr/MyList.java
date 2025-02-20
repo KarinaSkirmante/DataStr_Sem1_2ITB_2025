@@ -197,8 +197,27 @@ public class MyList {
 		return indexes;
 		
 	}
+	//TODO māja izpildīt: Izveidot funkciju, kas kā argumentu saņem elementu un atgriež nākamo elementu (veikt nepieciešamās pārbaudes);
 	
+	public void sort() {
+		
+		for(int i = 0; i < counter; i++) {
+			for(int j = 0; j < counter; j++) {
+				if(list[i] > list[j])
+				{
+					swap(i, j);
+				}
+			}
+		}
+		
+		
+	}
 	
+	private void swap(int index1, int index2) {
+		char temp = list[index1];
+		list[index1] = list[index2];
+		list[index2] = temp;
+	}
 	
 }
 
