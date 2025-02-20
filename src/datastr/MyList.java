@@ -96,7 +96,25 @@ public class MyList {
 		//list[counter++] = element;
 	}
 	
-	
+	public void add(char element, int index) throws Exception {
+		if(index < 0 || index > counter)
+		{
+			//garais pieraksts
+			//Exception myExc = new Exception("The index is not accepted");
+			//throw myExc;
+			//isais pieraksts
+			throw new Exception("The index is not accepted");
+			
+		}
+		
+		if(isFull()) {
+			resize();
+		}
+		
+		list[index] = element;
+		counter++;
+		
+	}
 	
 	
 	
