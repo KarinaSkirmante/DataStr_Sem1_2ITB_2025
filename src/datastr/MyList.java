@@ -111,6 +111,12 @@ public class MyList {
 			resize();
 		}
 		
+		
+		for(int i = counter; i > index; i--) {
+			list[i] = list[i-1];
+		}
+		
+		
 		list[index] = element;
 		counter++;
 		
