@@ -85,7 +85,16 @@ public class MyList {
 			
 	}
 	
-	
+	public void add(char element) {
+		if(isFull()) {
+			resize();
+		}
+		
+		list[counter] = element;
+		counter++;
+		
+		//list[counter++] = element;
+	}
 	
 	
 	
