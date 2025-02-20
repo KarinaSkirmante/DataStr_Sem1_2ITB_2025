@@ -123,6 +123,33 @@ public class MyList {
 	}
 	
 	
+	//TODO
+	//izveidot funkcijas remove definiciju
+	public void remove(int index) throws Exception
+	{
+	//parbaudit, vai saraksts ir tukss un ja ir, metam iznemumu
+		if(isEmpty()) {
+			throw new Exception("List is empty and it is not possible to remove element");
+		}
+		
+	//parbaudit index. Pie nepareiza indeksa izmest iznemumu
+		if(index < 0 || index >= counter)
+		{
+			throw new Exception("The index is not accepted");
+		}
+	//izveidot for ciklu, ar kuru uzkope virsu dzesamajam elementam
+		
+		for(int i = index; i < counter-1; i++)
+		{
+			list[i] = list[i+1];
+		}
+		
+		
+	//pedejao elementu uzliek uz atstarpi (sis tiks mainits velak pie template)
+		list[counter-1] = ' ';	
+	//jasamazina counter par vienu
+		counter--;
+	}
 	
 	
 	
