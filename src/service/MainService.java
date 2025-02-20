@@ -7,7 +7,7 @@ import datastr.MyList;
 public class MainService {
 
 	public static void main(String[] args)  {
-		MyList listForChar = new MyList(3);
+		MyList<Character> listForChar = new MyList<Character>(3);
 		listForChar.add('a');//a
 		listForChar.add('b');//a b
 		listForChar.add('c');//a b c 
@@ -42,6 +42,48 @@ public class MainService {
 		try
 		{
 			listForChar.print();//t
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.println("-----------------------------------");
+		
+		MyList<Integer> listForInt = new MyList<Integer>(3);
+		listForInt.add(2);
+		listForInt.add(4);
+		listForInt.add(10);
+		listForInt.add(5);
+		try
+		{
+			listForInt.print();
+			listForInt.add(100, 1);
+			listForInt.print();//2 100 4 10 5
+			
+			listForInt.remove(0);//2 tiek izdzests
+			listForInt.print();//100 4 10 5
+			
+			listForInt.add(4);//100 4 10 5 4
+			System.out.println(listForInt.get(1));//4
+			System.out.println(Arrays.toString(listForInt.searchElement(4)));//[1, 4]
+			
+			listForInt.sort();
+			listForInt.print();
+			
+			listForInt.makeEmpty();
+			listForInt.print();//nekā nebūs
+			
+			
+			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("--ADD 5 -----");
+		listForInt.add(5);//t
+		try
+		{
+			listForInt.print();//t
 		}
 		catch (Exception e) {
 			System.out.println(e);

@@ -1,16 +1,16 @@
 package datastr;
 
-public class MyList {
+public class MyList<Ttype> {
 
 	//mainīgie
-	private char[] list;
+	private Ttype[] list;
 	private final int DEFAULT_SIZE = 7;
 	private int size = DEFAULT_SIZE;
 	private int counter = 0;
 	
 	//noklusētais konstruktors
 	public MyList() {
-		list = new char[size];
+		list = (Ttype[]) new Object[size];
 	}
 	
 	//argumenta konstruktors
@@ -18,7 +18,7 @@ public class MyList {
 		if(inputSize > 0) {
 			size = inputSize;
 		}
-		list = new char[size];		
+		list = (Ttype[])new Object[size];		
 	}
 	
 	private boolean isFull() {
@@ -73,7 +73,7 @@ public class MyList {
 			size = (int)(size * 1.5); //135.7 -> 135
 		}
 		
-		char[] listNew = new char[size];
+		Ttype[] listNew = (Ttype[])new Object[size];
 		
 		for(int i = 0 ; i < counter; i++) {
 			listNew[i] = list[i];	
@@ -85,7 +85,7 @@ public class MyList {
 			
 	}
 	
-	public void add(char element) {
+	public void add(Ttype element) {
 		if(isFull()) {
 			resize();
 		}
@@ -96,7 +96,7 @@ public class MyList {
 		//list[counter++] = element;
 	}
 	
-	public void add(char element, int index) throws Exception {
+	public void add(Ttype element, int index) throws Exception {
 		if(index < 0 || index > counter)
 		{
 			//garais pieraksts
@@ -146,14 +146,14 @@ public class MyList {
 		
 		
 	//pedejao elementu uzliek uz atstarpi (sis tiks mainits velak pie template)
-		list[counter-1] = ' ';	
+	 //list[counter-1] = null;	
 	//jasamazina counter par vienu
 		counter--;
 	}
 	
 	//TODO
 	//funkcija definīcija
-	public char	get(int index) throws Exception
+	public Ttype get(int index) throws Exception
 	{
 	//parbaudit, vai saraksts ir tukss un ja ir, metam iznemumu
 		if(isEmpty()) {
@@ -169,7 +169,7 @@ public class MyList {
 	
 	}
 	
-	public int[] searchElement(char element) throws Exception
+	public int[] searchElement(Ttype element) throws Exception
 	{
 		if(isEmpty()) {
 			throw new Exception("List is empty and it is not possible to search element");
@@ -177,7 +177,7 @@ public class MyList {
 		
 		int howManyElementsSearched = 0;
 		for(int i = 0; i < counter; i++) {
-			if(list[i] == element)
+			if(list[i].equals(element))
 			{
 				howManyElementsSearched++;
 			}
@@ -187,7 +187,7 @@ public class MyList {
 		int counterForIndexes = 0;
 		for(int i = 0; i < counter; i++)
 		{
-			if(list[i] == element)
+			if(list[i].equals(element))
 			{
 				indexes[counterForIndexes] = i;
 				counterForIndexes++;
@@ -203,7 +203,9 @@ public class MyList {
 		
 		for(int i = 0; i < counter; i++) {
 			for(int j = 0; j < counter; j++) {
-				if(list[i] > list[j])
+				//if(list[i] > list[j])
+				if (   ((Comparable)(list[i])).compareTo(list[j])  == 1 )
+				
 				{
 					swap(i, j);
 				}
@@ -214,7 +216,7 @@ public class MyList {
 	}
 	
 	private void swap(int index1, int index2) {
-		char temp = list[index1];
+		Ttype temp = list[index1];
 		list[index1] = list[index2];
 		list[index2] = temp;
 	}
@@ -236,7 +238,7 @@ public class MyList {
 		{
 			size = DEFAULT_SIZE;
 			counter = 0;
-			list = new char[size];
+			list = (Ttype[]) new Object[size];
 			System.gc();
 		}
 	}
