@@ -151,8 +151,23 @@ public class MyList {
 		counter--;
 	}
 	
+	//TODO
+	//funkcija definīcija
+	public char	get(int index) throws Exception
+	{
+	//parbaudit, vai saraksts ir tukss un ja ir, metam iznemumu
+		if(isEmpty()) {
+			throw new Exception("List is empty and it is not possible to get element");
+		}
+	//parbaudit index. Pie nepareiza indeksa izmest iznemumu
+		if(index < 0 || index >= counter)
+		{
+			throw new Exception("The index is not accepted");
+		}
+	//atgriezt elementa vertību pie noteiktā indeksa
+		return list[index];
 	
-	
+	}
 	
 	
 	
