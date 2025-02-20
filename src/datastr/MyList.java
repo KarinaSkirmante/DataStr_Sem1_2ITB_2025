@@ -169,7 +169,34 @@ public class MyList {
 	
 	}
 	
-	
+	public int[] searchElement(char element) throws Exception
+	{
+		if(isEmpty()) {
+			throw new Exception("List is empty and it is not possible to search element");
+		}
+		
+		int howManyElementsSearched = 0;
+		for(int i = 0; i < counter; i++) {
+			if(list[i] == element)
+			{
+				howManyElementsSearched++;
+			}
+		}
+		
+		int[] indexes = new int[howManyElementsSearched];
+		int counterForIndexes = 0;
+		for(int i = 0; i < counter; i++)
+		{
+			if(list[i] == element)
+			{
+				indexes[counterForIndexes] = i;
+				counterForIndexes++;
+			}
+		}
+		
+		return indexes;
+		
+	}
 	
 	
 	
